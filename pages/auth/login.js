@@ -13,6 +13,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+import Cookies from 'js-cookie';
+
 function Copyright(props) {
   return (
     <Typography
@@ -37,10 +39,13 @@ export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    Cookies.set("email", data.get("email"));
+    Cookies.set("password", data.get("password"));
     console.log({
       email: data.get("email"),
       password: data.get("password"),
     });
+    window.location = "/w/home";
   };
 
   return (
@@ -96,7 +101,7 @@ export default function SignIn() {
                 <Button
                   type="submit"
                   fullWidth
-                  variant="contained"
+                  variant="outlined"
                   sx={{ mt: 3, mb: 2 }}
                 >
                   Sign In
@@ -108,7 +113,7 @@ export default function SignIn() {
                     </Link>
                   </Grid>
                   <Grid item>
-                    <Link href="#" variant="body2">
+                    <Link href="/auth/register" variant="body2">
                       {"Don't have an account? Sign Up"}
                     </Link>
                   </Grid>
