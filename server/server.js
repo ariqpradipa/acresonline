@@ -62,7 +62,20 @@ app.prepare().then(() => {
             if (sha256(password) === result[0].password) {
 
               const scramble = sha256(password + username + password);
-              res.end(token(scramble));
+              const useToken = token(scramble);
+              db
+                .collection("accounts")
+                .updateOne({ username }, { $set: { "currToken": useToken } }, function (err, result) {
+                  if (err) {
+
+                    console.log(err);
+
+                  } else {
+
+                    res.end(useToken);
+
+                  }
+                });
             }
           }
         }
@@ -110,8 +123,40 @@ app.prepare().then(() => {
           }
         }
       });
+  });
 
+  server.post("/srv/validateToken", (req, res) => {
 
+    const userRaw = req.body.username;
+    const username = sha256(userRaw);
+    const useToken = req.body.token;
+
+    db
+      .collection("accounts")
+      .find({ username })
+      .toArray(function (err, result) {
+        if (err) {
+
+          res.status(400).end("Error fetching listings!");
+
+        } else {
+          if (result.length === 0 || result === null) {
+
+            res.end('4404');
+
+          } else {
+            if (result[0].currToken === useToken) {
+
+              res.end("3302");
+
+            } else {
+
+              res.end("4403");
+
+            }
+          }
+        }
+      });
   });
 
 
