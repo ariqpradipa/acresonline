@@ -39,8 +39,8 @@ export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    Cookies.set("email", data.get("email"));
-    Cookies.set("password", data.get("password"));
+    Cookies.set("email", data.get("email"), { expires: 30 });
+    Cookies.set("password", data.get("password"), { expires: 30 });
     console.log({
       email: data.get("email"),
       password: data.get("password"),
@@ -94,10 +94,10 @@ export default function SignIn() {
                   id="password"
                   autoComplete="current-password"
                 />
-                <FormControlLabel
+                {/* <FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}
                   label="Remember me"
-                />
+                /> */}
                 <Button
                   type="submit"
                   fullWidth
