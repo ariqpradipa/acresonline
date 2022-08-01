@@ -61,7 +61,7 @@ app.prepare().then(() => {
           } else {
             if (sha256(password) === result[0].password) {
 
-              const scramble = sha256(password + email + password);
+              const scramble = sha256(password + username + password);
               res.end(token(scramble));
             }
           }

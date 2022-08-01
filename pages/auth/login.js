@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,8 +12,10 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
+import axios from 'axios';
 import Cookies from 'js-cookie';
+
+const Swal = require('sweetalert2');
 
 function Copyright(props) {
   return (
@@ -35,17 +37,60 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignIn() {
+export default function Login() {
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    Cookies.set("email", data.get("email"), { expires: 30 });
-    Cookies.set("password", data.get("password"), { expires: 30 });
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-    window.location = "/w/home";
+
+    // Cookies.set("email", data.get("email"), { expires: 30 });
+    // Cookies.set("password", data.get("password"), { expires: 30 });
+    if (username === "" || password === "") {
+      Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: 'Please fill in all fields',
+        showConfirmButton: false,
+        timer: 1000
+      })
+    } else {
+      axios
+        .post("/srv/login", {
+          username: username,
+          password: password
+        })
+        .then((response) => {
+          if (response.data !== 4401) {
+
+            Cookies.set("tokenAcres", response.data, { expires: 30 });
+            Cookies.set("usernameAcres", username, { expires: 30 });
+
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Login successful',
+              showConfirmButton: false,
+              timer: 1000
+            });
+
+            window.location.href = "/w/home";
+
+          } else {
+            Swal.fire({
+              position: 'center',
+              icon: 'warning',
+              title: 'Username or password incorrect',
+              showConfirmButton: false,
+              timer: 1000
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   return (
@@ -78,11 +123,13 @@ export default function SignIn() {
                   margin="normal"
                   required
                   fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
+                  id="username"
+                  label="Username"
+                  name="username"
+                  autoComplete="username"
                   autoFocus
+                  value={username}
+                  onChange={() => setUsername(event.target.value)}
                 />
                 <TextField
                   margin="normal"
@@ -93,6 +140,8 @@ export default function SignIn() {
                   type="password"
                   id="password"
                   autoComplete="current-password"
+                  value={password}
+                  onChange={() => setPassword(event.target.value)}
                 />
                 {/* <FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}
