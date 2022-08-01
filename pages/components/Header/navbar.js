@@ -78,7 +78,7 @@ export default function Navbar({ isOpen, setIsOpen }) {
                     <button
                         type="button"
                         href="/auth/register"
-                        className="hidden xl:block text-green-400  font-semibold border-green-400 border-[3px] active:bg-green-400 transition duration-300 ease-in-out hover:bg-green-400 active:text-white hover:text-white bg-opacity-50 rounded-[10px] text-normal px-4 py-2 text-center mb-2 mt-2"
+                        className="hidden xl:block text-cyan-600  font-semibold border-cyan-600 border-[3px] active:bg-cyan-600 transition duration-300 ease-in-out hover:bg-cyan-600 active:text-white hover:text-white bg-opacity-50 rounded-[10px] text-normal px-4 py-2 text-center mb-2 mt-2"
                     >
                         <NavLink to={'/auth/register'}>Sign Up</NavLink>
 
