@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,6 +12,10 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import axios from 'axios';
+import toastr from 'toastr';
+
+const Swal = require('sweetalert2');
 
 function Copyright(props) {
   return (
@@ -33,14 +37,73 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignUp() {
+export default function Register() {
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+
+    if (username === "" || email === "" || password === "" || confirmPassword === "") {
+      Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: 'Please fill in all fields',
+        showConfirmButton: false,
+        timer: 1000
+      })
+    } else if (password !== confirmPassword) {
+      Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: 'Passwords do not match',
+        showConfirmButton: false,
+        timer: 1000
+      })
+    } else {
+      axios
+        .post('/srv/register', {
+          username: username,
+          email: email,
+          password: password
+        })
+        .then((response) => {
+          console.log(response)
+          if (response.data === 3301) {
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Account created successfully',
+              showConfirmButton: false,
+              timer: 1000
+            })
+            setTimeout(() => {
+              window.location.href = "/auth/login";
+            }, 1000);
+          } else if (response.data === 4402) {
+            Swal.fire({
+              position: 'center',
+              icon: 'warning',
+              title: 'Username already exists',
+              showConfirmButton: false,
+              timer: 1000
+            })
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Error creating account',
+            showConfirmButton: false,
+            timer: 1000
+          })
+        });
+    }
   };
 
   return (
@@ -68,25 +131,16 @@ export default function SignUp() {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
-                  autoComplete="given-name"
-                  name="firstName"
+                  name="username"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="username"
+                  label="Username"
                   autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
+                  value={username}
+                  onChange={() => setUsername(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -97,6 +151,8 @@ export default function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  value={email}
+                  onChange={() => setEmail(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -107,15 +163,20 @@ export default function SignUp() {
                   label="Password"
                   type="password"
                   id="password"
-                  autoComplete="new-password"
+                  value={password}
+                  onChange={() => setPassword(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
-                  label="I want to receive inspiration, marketing promotions and updates via email."
+                <TextField
+                  required
+                  fullWidth
+                  name="confirmPassword"
+                  label="Confirm Password"
+                  type="password"
+                  id="confirmPassword"
+                  value={confirmPassword}
+                  onChange={() => setConfirmPassword(event.target.value)}
                 />
               </Grid>
             </Grid>
