@@ -71,10 +71,11 @@ app.prepare().then(() => {
 
   server.post("/srv/register", (req, res) => {
 
-    const username = sha256(req.body.username);
+    const userRaw = req.body.username;
+    const username = sha256(userRaw.toLowerCase());
 
     const accountData = {
-      username: sha256(req.body.username),
+      username: username,
       email: req.body.email,
       password: sha256(req.body.password),
       createdAt: new Date(),

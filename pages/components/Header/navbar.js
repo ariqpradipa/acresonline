@@ -46,9 +46,9 @@ function MobileNav({ isOpen, setIsOpen }) {
 
                 <button
                     type="button"
-                    className=" text-[#E8D05F] border-[#E8D05F] border-[4px] active:bg-[#E8D05F] active:text-white font-semibold rounded-[8px] px-14 md:px-64 py-3 text-center mb-2 mt-4 mx-5"
-                    href="/Kelompok">
-                    <NavLink to={'/Kelompok'} >Sign Up</NavLink>
+                    className=" text-cyan-600 border-cyan-600 border-[4px] active:bg-cyan-600 active:text-white font-semibold rounded-[8px] px-14 md:px-64 py-3 text-center mb-2 mt-4 mx-5"
+                    href="/auth/register">
+                    <NavLink to={'/auth/register'} >Sign Up</NavLink>
                 </button>
             </div>
         </div>
@@ -92,15 +92,15 @@ export default function Navbar({ isOpen, setIsOpen }) {
                 >
                     {/* hamburger button */}
                     <span
-                        className={`h-1 w-full bg-[#E8D05F] rounded-lg transform transition duration-300 ease-in-out ${isOpen ? "rotate-45 translate-y-3.5 w-10" : "w-10"
+                        className={`h-1 w-full bg-cyan-600 rounded-lg transform transition duration-300 ease-in-out ${isOpen ? "rotate-45 translate-y-3.5 w-10" : "w-10"
                             }`}
                     />
                     <span
-                        className={`h-1 w-full bg-[#E8D05F] rounded-lg transition-all duration-300 ease-in-out ${isOpen ? "w-0" : "w-full"
+                        className={`h-1 w-full bg-cyan-600 rounded-lg transition-all duration-300 ease-in-out ${isOpen ? "w-0" : "w-full"
                             }`}
                     />
                     <span
-                        className={`h-1 w-full bg-[#E8D05F] rounded-lg transform transition duration-300 ease-in-out ${isOpen ? "-rotate-45 -translate-y-3.5 w-10" : "w-10"
+                        className={`h-1 w-full bg-cyan-600 rounded-lg transform transition duration-300 ease-in-out ${isOpen ? "-rotate-45 -translate-y-3.5 w-10" : "w-10"
                             }`}
                     />
                 </div>
