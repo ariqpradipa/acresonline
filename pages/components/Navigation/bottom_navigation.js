@@ -4,9 +4,14 @@ import CssBaseline from '@mui/material/CssBaseline';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import Paper from '@mui/material/Paper';
-import Home from '../../w/home';
-import Regis from '../../auth/register';
+
+// Cookie Checker
 import CookieChecker from '../../auth/cookieChecker';
+
+// navigate
+import Home from '../../w/home';
+import Quest from '../../w/quest';
+import Status from '../../w/status';
 
 // icons
 import HomeIcon from '@mui/icons-material/Home';
@@ -25,7 +30,8 @@ export default function FixedBottomNavigation() {
         <>
             <CookieChecker />
             {value === 0 && <Home />}
-            {value === 1 && <Regis />}
+            {value === 1 && <Quest />}
+            {value === 2 && <Status />}
             <Box sx={{ pb: 7 }} ref={ref}>
                 <CssBaseline />
                 <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>

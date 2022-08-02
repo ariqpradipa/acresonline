@@ -33,13 +33,13 @@ export default function CookieChecker() {
             .then((response) => {
 
                 if (response.data === 3302) {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Token true',
-                        showConfirmButton: false,
-                        timer: 1000
-                    });
+                    // Swal.fire({
+                    //     position: 'center',
+                    //     icon: 'success',
+                    //     title: 'Token true',
+                    //     showConfirmButton: false,
+                    //     timer: 1000
+                    // });
                     return;
 
                 } else if (response.data === 4403) {
