@@ -21,7 +21,7 @@ const rand = () => {
 
 const token = (data) => {
 
-  return sha256(rand() + sha256(rand() + data) + rand()) + sha256(rand() + sha256(rand() + data) + rand());
+  return sha256(rand() + sha256(rand() + data) + rand()) + sha256(rand() + sha256(rand() + data) + rand()) + sha256(Date.now().toString());
 
 }
 
