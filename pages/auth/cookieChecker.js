@@ -21,7 +21,7 @@ export default function CookieChecker() {
 
         }
 
-    }, [Cookies.get("tokenAcres"), Cookies.get("usernameAcres")]);
+    }, []);
 
     const getValidToken = () => {
 

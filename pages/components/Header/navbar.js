@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Image from "next/image";
 import { Fragment } from "react";
 import { menuItems } from "./navbarData";
 
@@ -28,9 +30,11 @@ function MobileNav({ isOpen, setIsOpen }) {
         >
             <div className="flex items-center w-full filter bg-white h-20">
                 {/*logo container*/}
-                <a className="text-xl font-semibold" href="/">
-                    <img className="object-scale-down h-[60px] w-[100px] ml-[12px] sm:w-[120px] " /*</a>src={Logo}*/ alt="AcresOnline"></img>
-                </a>
+                <Link href="/">
+                    <a className="text-xl font-semibold">
+                        <Image className="object-scale-down h-[60px] w-[100px] ml-[12px] sm:w-[120px] " /*</a>src={Logo}*/ alt="AcresOnline"></Image>
+                    </a>
+                </Link>
             </div>
             <div className="flex flex-col mt-4 items-center">
                 {menuItems.map((menuItem, id) => (
@@ -47,7 +51,7 @@ function MobileNav({ isOpen, setIsOpen }) {
                 <button
                     type="button"
                     className=" text-cyan-600 border-cyan-600 border-[4px] active:bg-cyan-600 active:text-white font-semibold rounded-[8px] px-14 md:px-64 py-3 text-center mb-2 mt-4 mx-5"
-                    onClick={() => window.location.href="/auth/register"}>
+                    onClick={() => window.location.href = "/auth/register"}>
                     Sign Up
                 </button>
             </div>
@@ -61,9 +65,11 @@ export default function Navbar({ isOpen, setIsOpen }) {
             <nav className="sticky top-0 z-50 flex filter bg-white py-4 h-[80px] border-b-2 items-center px-5 sm:px-10 md:px-10 lg:px-24 2xl:px-48 3xl:px-64">
                 <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
                 <div className="sm:w-4/12 flex justify-start">
-                    <a className="text-2xl font-semibold " href="/">
-                        <img className="object-scale-down h-[60px] w-[100px] md:ml-[-15px] sm:w-[120px] " /*src={Logo}*/ alt="AcresOnline"></img>
-                    </a>
+                    <Link href="/">
+                        <a className="text-2xl font-semibold ">
+                            <Image className="object-scale-down h-[60px] w-[100px] md:ml-[-15px] sm:w-[120px] " /*src={Logo}*/ alt="AcresOnline"></Image>
+                        </a>
+                    </Link>
                 </div>
                 <div className="w-6/12 flex justify-center">
                     <div className="hidden xl:flex justify-center font-normal">
@@ -77,7 +83,7 @@ export default function Navbar({ isOpen, setIsOpen }) {
                 <div className={`w-4/12 flex justify-end`}>
                     <button
                         type="button"
-                        onClick={() => window.location.href="/auth/register"}
+                        onClick={() => window.location.href = "/auth/register"}
                         className="hidden xl:block text-cyan-600  font-semibold border-cyan-600 border-[3px] active:bg-cyan-600 transition duration-300 ease-in-out hover:bg-cyan-600 active:text-white hover:text-white bg-opacity-50 rounded-[10px] text-normal px-4 py-2 text-center mb-2 mt-2"
                     >
                         Sign Up
