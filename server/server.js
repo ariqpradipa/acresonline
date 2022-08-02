@@ -43,7 +43,8 @@ app.prepare().then(() => {
 
   server.post("/srv/login", (req, res) => {
 
-    const username = sha256(req.body.username);
+    const userRaw = req.body.username;
+    const username = sha256(userRaw.toLowerCase());
     const password = req.body.password;
 
     db
