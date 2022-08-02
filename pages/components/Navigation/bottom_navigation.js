@@ -6,6 +6,7 @@ import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import Paper from '@mui/material/Paper';
 import Home from '../../w/home';
 import Regis from '../../auth/register';
+import CookieChecker from '../../auth/cookieChecker';
 
 // icons
 import HomeIcon from '@mui/icons-material/Home';
@@ -22,6 +23,7 @@ export default function FixedBottomNavigation() {
 
     return (
         <>
+            <CookieChecker />
             {value === 0 && <Home />}
             {value === 1 && <Regis />}
             <Box sx={{ pb: 7 }} ref={ref}>

@@ -47,8 +47,8 @@ function MobileNav({ isOpen, setIsOpen }) {
                 <button
                     type="button"
                     className=" text-cyan-600 border-cyan-600 border-[4px] active:bg-cyan-600 active:text-white font-semibold rounded-[8px] px-14 md:px-64 py-3 text-center mb-2 mt-4 mx-5"
-                    href="/auth/register">
-                    <NavLink to={'/auth/register'} >Sign Up</NavLink>
+                    onClick={() => window.location.href="/auth/register"}>
+                    Sign Up
                 </button>
             </div>
         </div>
@@ -77,10 +77,10 @@ export default function Navbar({ isOpen, setIsOpen }) {
                 <div className={`w-4/12 flex justify-end`}>
                     <button
                         type="button"
-                        href="/auth/register"
+                        onClick={() => window.location.href="/auth/register"}
                         className="hidden xl:block text-cyan-600  font-semibold border-cyan-600 border-[3px] active:bg-cyan-600 transition duration-300 ease-in-out hover:bg-cyan-600 active:text-white hover:text-white bg-opacity-50 rounded-[10px] text-normal px-4 py-2 text-center mb-2 mt-2"
                     >
-                        <NavLink to={'/auth/register'}>Sign Up</NavLink>
+                        Sign Up
 
                     </button>
                 </div>
