@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const sha256 = require("js-sha256").sha256;
+const sha512 = require("js-sha512").sha512;
 
 const next = require("next");
 const port = process.env.PORT || 3000;
@@ -13,6 +13,8 @@ const accountModel = require("./accountModel");
 
 const cloudDB = 'mongodb+srv://superuser:AStO4UUKTtWLPE05@acresonline.atgzxpe.mongodb.net/acres?retryWrites=true&w=majority';
 
+const scrambleCatalyst = 'TheAcresOnlineWorld';
+
 const rand = () => {
 
   return Math.random().toString(36).substring(2);
@@ -21,7 +23,7 @@ const rand = () => {
 
 const token = (data) => {
 
-  return sha256(rand() + sha256(rand() + data) + rand()) + sha256(rand() + sha256(rand() + data) + rand()) + sha256(Date.now().toString());
+  return sha512(rand() + sha512(rand() + data) + rand()) + sha512(rand() + sha512(rand() + data) + rand()) + sha512(Date.now().toString());
 
 }
 
@@ -44,8 +46,9 @@ app.prepare().then(() => {
   server.post("/srv/login", (req, res) => {
 
     const userRaw = req.body.username;
-    const username = sha256(userRaw.toLowerCase());
-    const password = req.body.password;
+    const passRaw = req.body.password;
+
+    const username = sha512(scrambleCatalyst + userRaw.toLowerCase() + scrambleCatalyst) + sha512(userRaw.toLowerCase() + scrambleCatalyst);
 
     db
       .collection("accounts")
@@ -60,9 +63,11 @@ app.prepare().then(() => {
             res.end('4401');
 
           } else {
-            if (sha256(password) === result[0].password) {
+            const password = sha512(scrambleCatalyst + passRaw + scrambleCatalyst) + sha512(passRaw + scrambleCatalyst);
 
-              const scramble = sha256(password + username + password);
+            if (password === result[0].password) {
+
+              const scramble = sha512(password + username + password);
               const useToken = token(scramble);
               db
                 .collection("accounts")
@@ -86,12 +91,17 @@ app.prepare().then(() => {
   server.post("/srv/register", (req, res) => {
 
     const userRaw = req.body.username;
-    const username = sha256(userRaw.toLowerCase());
+    const emailRaw = req.body.email;
+    const passRaw = req.body.password;
+
+    const username = sha512(scrambleCatalyst + userRaw.toLowerCase() + scrambleCatalyst) + sha512(userRaw.toLowerCase() + scrambleCatalyst);
+    const password = sha512(scrambleCatalyst + passRaw + scrambleCatalyst) + sha512(passRaw + scrambleCatalyst);
+    const email = sha512(scrambleCatalyst + emailRaw.toLowerCase() + scrambleCatalyst);
 
     const accountData = {
       username: username,
-      email: req.body.email,
-      password: sha256(req.body.password),
+      email: email,
+      password: password,
       createdAt: new Date(),
     };
 
@@ -129,8 +139,9 @@ app.prepare().then(() => {
   server.post("/srv/validateToken", (req, res) => {
 
     const userRaw = req.body.username;
-    const username = sha256(userRaw);
     const useToken = req.body.token;
+
+    const username = sha512(scrambleCatalyst + userRaw.toLowerCase() + scrambleCatalyst) + sha512(userRaw.toLowerCase() + scrambleCatalyst);
 
     db
       .collection("accounts")
