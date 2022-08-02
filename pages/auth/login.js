@@ -75,7 +75,7 @@ export default function Login() {
               timer: 1000
             });
 
-            window.location.href = "/w/home";
+            window.location.href = "/main";
 
           } else {
             Swal.fire({
