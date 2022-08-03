@@ -1,0 +1,402 @@
+﻿[
+    {
+        "level": "1",
+        "experience": "800.0"
+    },
+    {
+        "level": "2",
+        "experience": "960"
+    },
+    {
+        "level": "3",
+        "experience": "1152"
+    },
+    {
+        "level": "4",
+        "experience": "1382"
+    },
+    {
+        "level": "5",
+        "experience": "1659"
+    },
+    {
+        "level": "6",
+        "experience": "1991"
+    },
+    {
+        "level": "7",
+        "experience": "2389"
+    },
+    {
+        "level": "8",
+        "experience": "2867"
+    },
+    {
+        "level": "9",
+        "experience": "3440"
+    },
+    {
+        "level": "10",
+        "experience": "4128"
+    },
+    {
+        "level": "11",
+        "experience": "4953"
+    },
+    {
+        "level": "12",
+        "experience": "5944"
+    },
+    {
+        "level": "13",
+        "experience": "7133"
+    },
+    {
+        "level": "14",
+        "experience": "8559"
+    },
+    {
+        "level": "15",
+        "experience": "10271"
+    },
+    {
+        "level": "16",
+        "experience": "12326"
+    },
+    {
+        "level": "17",
+        "experience": "14791"
+    },
+    {
+        "level": "18",
+        "experience": "17749"
+    },
+    {
+        "level": "19",
+        "experience": "21299"
+    },
+    {
+        "level": "20",
+        "experience": "25558"
+    },
+    {
+        "level": "21",
+        "experience": "35782"
+    },
+    {
+        "level": "22",
+        "experience": "50094"
+    },
+    {
+        "level": "23",
+        "experience": "70132"
+    },
+    {
+        "level": "24",
+        "experience": "98185"
+    },
+    {
+        "level": "25",
+        "experience": "137459"
+    },
+    {
+        "level": "26",
+        "experience": "192443"
+    },
+    {
+        "level": "27",
+        "experience": "269420"
+    },
+    {
+        "level": "28",
+        "experience": "377188"
+    },
+    {
+        "level": "29",
+        "experience": "528063"
+    },
+    {
+        "level": "30",
+        "experience": "739289"
+    },
+    {
+        "level": "31",
+        "experience": "1035004"
+    },
+    {
+        "level": "32",
+        "experience": "1449006"
+    },
+    {
+        "level": "33",
+        "experience": "2028608"
+    },
+    {
+        "level": "34",
+        "experience": "2840051"
+    },
+    {
+        "level": "35",
+        "experience": "3976072"
+    },
+    {
+        "level": "36",
+        "experience": "5566500"
+    },
+    {
+        "level": "37",
+        "experience": "7793100"
+    },
+    {
+        "level": "38",
+        "experience": "10910340"
+    },
+    {
+        "level": "39",
+        "experience": "15274477"
+    },
+    {
+        "level": "40",
+        "experience": "21384267"
+    },
+    {
+        "level": "41",
+        "experience": "29937974"
+    },
+    {
+        "level": "42",
+        "experience": "41913164"
+    },
+    {
+        "level": "43",
+        "experience": "58678430"
+    },
+    {
+        "level": "44",
+        "experience": "82149801"
+    },
+    {
+        "level": "45",
+        "experience": "115009722"
+    },
+    {
+        "level": "46",
+        "experience": "161013611"
+    },
+    {
+        "level": "47",
+        "experience": "225419055"
+    },
+    {
+        "level": "48",
+        "experience": "315586677"
+    },
+    {
+        "level": "49",
+        "experience": "441821348"
+    },
+    {
+        "level": "50",
+        "experience": "618549887"
+    },
+    {
+        "level": "51",
+        "experience": "927824831"
+    },
+    {
+        "level": "52",
+        "experience": "1391737247"
+    },
+    {
+        "level": "53",
+        "experience": "2087605870"
+    },
+    {
+        "level": "54",
+        "experience": "3131408805"
+    },
+    {
+        "level": "55",
+        "experience": "4697113208"
+    },
+    {
+        "level": "56",
+        "experience": "7045669812"
+    },
+    {
+        "level": "57",
+        "experience": "10568504718"
+    },
+    {
+        "level": "58",
+        "experience": "15852757078"
+    },
+    {
+        "level": "59",
+        "experience": "23779135616"
+    },
+    {
+        "level": "60",
+        "experience": "35668703425"
+    },
+    {
+        "level": "61",
+        "experience": "53503055137"
+    },
+    {
+        "level": "62",
+        "experience": "80254582705"
+    },
+    {
+        "level": "63",
+        "experience": "120381874058"
+    },
+    {
+        "level": "64",
+        "experience": "180572811087"
+    },
+    {
+        "level": "65",
+        "experience": "270859216630"
+    },
+    {
+        "level": "66",
+        "experience": "406288824945"
+    },
+    {
+        "level": "67",
+        "experience": "609433237418"
+    },
+    {
+        "level": "68",
+        "experience": "914149856127"
+    },
+    {
+        "level": "69",
+        "experience": "1371224784190"
+    },
+    {
+        "level": "70",
+        "experience": "2056837176286"
+    },
+    {
+        "level": "71",
+        "experience": "3085255764428"
+    },
+    {
+        "level": "72",
+        "experience": "4627883646643"
+    },
+    {
+        "level": "73",
+        "experience": "6941825469964"
+    },
+    {
+        "level": "74",
+        "experience": "10412738204946"
+    },
+    {
+        "level": "75",
+        "experience": "15619107307419"
+    },
+    {
+        "level": "76",
+        "experience": "23428660961129"
+    },
+    {
+        "level": "77",
+        "experience": "35142991441693"
+    },
+    {
+        "level": "78",
+        "experience": "52714487162540"
+    },
+    {
+        "level": "79",
+        "experience": "79071730743810"
+    },
+    {
+        "level": "80",
+        "experience": "118607596115714"
+    },
+    {
+        "level": "81",
+        "experience": "189772153785143"
+    },
+    {
+        "level": "82",
+        "experience": "303635446056229"
+    },
+    {
+        "level": "83",
+        "experience": "485816713689966"
+    },
+    {
+        "level": "84",
+        "experience": "777306741903946"
+    },
+    {
+        "level": "85",
+        "experience": "1243690787046310"
+    },
+    {
+        "level": "86",
+        "experience": "1989905259274100"
+    },
+    {
+        "level": "87",
+        "experience": "3183848414838560"
+    },
+    {
+        "level": "88",
+        "experience": "5094157463741700"
+    },
+    {
+        "level": "89",
+        "experience": "8150651941986720"
+    },
+    {
+        "level": "90",
+        "experience": "14671173495576100"
+    },
+    {
+        "level": "91",
+        "experience": "26408112292037000"
+    },
+    {
+        "level": "92",
+        "experience": "47534602125666500"
+    },
+    {
+        "level": "93",
+        "experience": "85562283826199800"
+    },
+    {
+        "level": "94",
+        "experience": "154012110887160000"
+    },
+    {
+        "level": "95",
+        "experience": "277221799596887000"
+    },
+    {
+        "level": "96",
+        "experience": "498999239274397000"
+    },
+    {
+        "level": "97",
+        "experience": "898198630693915000"
+    },
+    {
+        "level": "98",
+        "experience": "1616757535249050000"
+    },
+    {
+        "level": "99",
+        "experience": "2910163563448280000"
+    },
+    {
+        "level": "100",
+        "experience": "5238294414206910000"
+    }
+]

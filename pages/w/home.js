@@ -2,6 +2,10 @@ import * as React from "react";
 import Image from "next/image"
 import Cookies from "js-cookie";
 import Button from '@mui/material/Button';
+const Swal = require('sweetalert2');
+
+// Level Gauge
+import LevelGauge from '../components/Level/levelGauge';
 
 //icons
 import LocalMallIcon from '@mui/icons-material/LocalMall';
@@ -9,14 +13,15 @@ import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import CheckroomIcon from '@mui/icons-material/Checkroom';
 import IronIcon from '@mui/icons-material/Iron';
 
-const Swal = require('sweetalert2');
 
 
 export default function Home() {
 
     const [token, setToken] = React.useState(null);
     const [username, setUsername] = React.useState(null);
-    const percentage = "100%"
+
+    const [level, setLevel] = React.useState(0);
+    const levelPercentage = "90%"
 
     React.useEffect(() => {
         setToken(Cookies.get("tokenAcres"));
@@ -26,18 +31,16 @@ export default function Home() {
 
     return (
         <>
-            <div>
-                <h1>Home Page</h1>
-                <h1>token {token}</h1>
-                <h1>username {username}</h1>
+            <div className="flex justify-start ml-1 mt-2">
+                <h1>Level: {level}</h1>
             </div>
 
             <div className="flex flex-col mb-4 justify-center items-center">
-                <div className="w-[98%] bg-gray-200 h-5 mb-2">
-                    <div className="bg-blue-600 h-5 text-white text-center" style={{width: percentage}}>{percentage}</div>
-                </div>
-                <img src="https://mdbootstrap.com/img/new/standard/city/047.jpg" class="max-w-[90%] h-auto rounded-lg" alt="" />
+
+                <LevelGauge percentage={levelPercentage} />
+                <img src="https://mdbootstrap.com/img/new/standard/city/047.jpg" class="max-w-[92%] h-auto rounded-lg" alt="" />
             </div>
+
             <div className="flex flex-col justify-center items-center space-y-2">
                 <div className="flex space-x-2">
                     <Button variant="outlined" startIcon={<LocalMallIcon />} className="justify-start w-[45vw]">
@@ -55,6 +58,11 @@ export default function Home() {
                         Tailor
                     </Button>
                 </div>
+            </div>
+            <div className="flex flex-col justify-center items-center m-[3%] space-y-2">
+                <Button variant="outlined" startIcon={<CheckroomIcon />} className="justify-start w-[98%] h-[5vh]">
+                    Dungeon
+                </Button>
             </div>
         </>
     );
