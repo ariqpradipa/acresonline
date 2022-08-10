@@ -1,5 +1,6 @@
-import { MongoClient } from 'mongodb';
-import nextConnect from 'next-connect';
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
 
 const uri = process.env.MONGODB_URI;
 const options = {
@@ -15,19 +16,28 @@ if (!process.env.MONGODB_URI) {
 
 }
 
-const client = new MongoClient(uri, options);
+const server = express();
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+server.use(cors());
+mongoose.connect(uri, options);
 
-async function database(req, res, next) {
+const db = mongoose.connection;
 
-    if (!client.isConnected()) await client.connect();
-    req.dbClient = client;
-    req.db = client.db('MCT');
-    return next();
-    
-}
+// async function database(req, res, next) {
 
-const middleware = nextConnect();
+//     const db = mongoose.connection;
+//     db.on("error", console.error.bind(console, "connection error: "));
+//     db.once("open", () => console.log("~Database connected~"));
+//     req.db = db;
+//     return next();
 
-middleware.use(database);
+// }
 
-export default middleware;
+// const middleware = nextConnect();
+
+// middleware.use(database);
+
+// export default middleware;
+
+export default db;
