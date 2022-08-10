@@ -57,7 +57,7 @@ export default function Login() {
       })
     } else {
       axios
-        .post("/api/loginApi", {
+        .post("/api/auth/loginApi", {
           username: username,
           password: password
         })

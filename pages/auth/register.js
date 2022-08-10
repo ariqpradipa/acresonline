@@ -64,7 +64,7 @@ export default function Register() {
       })
     } else {
       axios
-        .post('/srv/register', {
+        .post('/api/auth/registerApi', {
           username: username,
           email: email,
           password: password

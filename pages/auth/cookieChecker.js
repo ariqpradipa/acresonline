@@ -26,7 +26,7 @@ export default function CookieChecker() {
     const getValidToken = () => {
 
         axios
-            .post("/srv/validateToken", {
+            .post("/api/validateToken", {
                 username: Cookies.get("usernameAcres"),
                 token: Cookies.get("tokenAcres")
             })

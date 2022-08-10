@@ -1,11 +1,9 @@
-import db from '../../middleware/database'
-import { token } from '../../lib/encrypt'
+import db from '../../../middleware/database'
+import { token } from '../../../lib/encrypt'
 
 const sha512 = require("js-sha512").sha512;
 
 const scrambleCatalyst = 'TheAcresOnlineWorld';
-
-console.log("masuk ke loginAPI");
 
 export default function loginApi(req, res) {
     return new Promise((resolve, reject) => {
@@ -14,9 +12,6 @@ export default function loginApi(req, res) {
         const passRaw = req.body.password;
 
         const username = sha512(scrambleCatalyst + userRaw.toLowerCase() + scrambleCatalyst) + sha512(userRaw.toLowerCase() + scrambleCatalyst);
-
-        console.log(userRaw);
-        console.log(passRaw);
 
         db
             .collection("accounts")
