@@ -1,3 +1,5 @@
+import { connectToDatabase } from "../../util/mongodb";
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -21,6 +23,9 @@ const token = (data) => {
 }
 
 export default function loginApi(req, res) {
+
+    const { db } = await connectToDatabase();
+
 
     console.log(req);
     console.log(res);
