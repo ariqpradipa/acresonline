@@ -11,7 +11,7 @@ const handle = app.getRequestHandler();
 
 const accountModel = require("./accountModel");
 
-const cloudDB = 'mongodb+srv://superuser:AStO4UUKTtWLPE05@acresonline.atgzxpe.mongodb.net/acres?retryWrites=true&w=majority';
+const cloudDB = '';
 
 const scrambleCatalyst = 'TheAcresOnlineWorld';
 
