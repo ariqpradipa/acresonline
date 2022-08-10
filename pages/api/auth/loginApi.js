@@ -6,6 +6,7 @@ const sha512 = require("js-sha512").sha512;
 const scrambleCatalyst = 'TheAcresOnlineWorld';
 
 export default function loginApi(req, res) {
+
     return new Promise((resolve, reject) => {
 
         const userRaw = req.body.username;
@@ -54,6 +55,8 @@ export default function loginApi(req, res) {
                     }
                 }
             });
+
+
 
     });
 };
